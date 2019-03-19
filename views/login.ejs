@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login into OpenPool</title>
+        <style>
+                .login_signup_buttons {
+                    width: 50%;
+     
+                }
+                input[type= submit] {
+                 width: 40%;
+                 padding: 30px;
+                 margin: 20px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 2em;
+                }
+                input[type= text] {
+                 width: 40%;
+                 padding: 30px;
+                 margin: 20px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 2em;
+                }
+                input[type= password] {
+                 width: 40%;
+                 padding: 30px;
+                 margin: 20px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 2em;
+                }
+                
+                body {
+                    background-color:#2ecc72;
+                }
+            </style>
+    </head>
+    <body>
+        <h1 align="center">OpenPool</h1>
+        <div id="main" align='center'>
+            <form method="post" action="/login" >
+                <input type="text" name="username" id="username" placeholder="Enter Your Username"><br>
+                <input type="password" name="password" id="password" placeholder="Shh. Secret.."><br>
+                <input type="submit" value="Login" placeholder="Login"><br>
+            </form>
+            <form method="get" action="/create">
+                <input type="submit" value="Don't have any account create one."><br>
+            </form>
+        </div>
+                
+</html>

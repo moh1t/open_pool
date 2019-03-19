@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Enter Details</title>
+        <style>
+                input[type= submit] {
+                    width: 40%;
+                    padding: 30px;
+                    margin: 20px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 40px;
+                    box-sizing: border-box;
+                    font-size: 2em;
+                   }
+                   input[type= text] {
+                    width: 40%;
+                    padding: 30px;
+                    margin: 20px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 40px;
+                    box-sizing: border-box;
+                    font-size: 2em;
+                   }
+                   input[type= datetime-local], input[type=reset] {
+                    width: 40%;
+                    padding: 30px;
+                    margin: 20px;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 40px;
+                    box-sizing: border-box;
+                    font-size: 2em;
+                   }
+                   body {
+                       background-color:#2ecc72;
+                   }
+                   </style>
+    </head>
+    <body><h1 align= center>Enter Your trip details</h1>
+        <form method="post" action="/vehicle" align=center>
+            <input type="text" name="from" placeholder="Travelling From"><br>
+            <input type="text" name="to" placeholder="Travelling to" ><br>
+            <input type="datetime-local" name="on"><br>
+            <input type="submit" value="Confirm"><br>
+            <input type="reset" value="Reset" ><br>
+        </form>   
+    </body>
+</html>

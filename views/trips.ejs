@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Rides Available
+        </title>
+    </head>
+    <body>
+        <h1 align=left>Available Trips :- </h1>
+        <div id="end"></div>
+    </body>
+    <script>
+        var data = '<%-data%>'
+        var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        data = JSON.parse(data)
+        data.forEach(trip => {
+            var div = document.createElement('div')
+            on = trip.t_on
+            var on = document.createTextNode(on)
+            var space = document.createTextNode(" Contact Number - ")
+            var contact = document.createTextNode(trip.contact_number)
+            div.appendChild(on)
+            div.appendChild(space)
+            div.appendChild(contact)
+            var end = document.getElementById("end")
+            var new_line = document.createElement('br')
+            document.body.insertBefore(div, end)
+            document.body.insertBefore(new_line, end)
+            
+        });
+    </script>
+    <style>
+    div {
+        text-align: center;
+        padding: 30px;
+        margin: 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 40px;
+        box-sizing: border-box;
+        font-size: 2em;
+        background-color: aliceblue
+        
+    }
+    body {
+                    background-color:#2ecc72;
+                }
+    </style>
+</html>

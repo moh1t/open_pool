@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Change Your password
+        </title>
+        <style>
+        input[type= submit] {
+            width: 40%;
+            padding: 30px;
+            margin: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            box-sizing: border-box;
+            font-size: 2em;
+           }
+           input[type= text] {
+            width: 40%;
+            padding: 30px;
+            margin: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            box-sizing: border-box;
+            font-size: 2em;
+           }
+           input[type= password] {
+            width: 40%;
+            padding: 30px;
+            margin: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 40px;
+            box-sizing: border-box;
+            font-size: 2em;
+           }
+           
+           body {
+               background-color:#2ecc72;
+           }
+        </style>
+    </head>
+    <body>
+        <h1 align= center>Change Your Password</h1>
+        <form method="post" action="/changepass" align=center>
+            <input type="password" name= "new_pass" placeholder="Enter New Password" required><br>
+            <input type="submit" value="Change"><br>
+        </form>
+    </body>
+</html>

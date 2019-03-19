@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create New</title>
+        <script>    var securePassword = function() {
+                var pass = document.getElementById('password').value;
+                var len = pass.length;
+                function checkCapital() {
+                  var i=0, n=0 ,k=0;
+                  for(i=0; i < len; i++){
+                    n=pass[i].charCodeAt(0);
+                    if (n>=65 && n<=90){
+                      k= true;
+                      break;
+                    }
+                    else
+                      k= false;
+                  }
+                  return k;
+                }
+                function checkSmall() {
+                  var i=0, n=0 ,k=0;
+                  for(i=0; i < len; i++){
+                    n=pass[i].charCodeAt(0);
+                    if (n>=97 && n<=122){
+                      k= true;
+                      break;
+                    }
+                    else
+                      k= false;
+                  }
+                  return k;
+                }
+                function checkSpecialCharactor() {
+                  var i=0, n=0 ,k=0;
+                  for(i=0; i < len; i++){
+                    n=pass[i].charCodeAt(0);
+                    if (n>=35 && n<=38 || n==64){
+                      k= true;
+                      break;
+                    }
+                    else
+                      k= false;
+                  }
+                  return k;
+                }
+                function checkNumber() {
+                  var i=0, n=0 ,k=0;
+                  for(i=0; i < len; i++){
+                    n=pass[i].charCodeAt(0);
+                    if (n>=48 && n<=57){
+                      k= true;
+                      break;
+                    }
+                    else
+                      k= false;
+                  }
+                  return k;
+                }
+                var capital = checkCapital();
+                var small = checkSmall();
+                var specialCharactor = checkSpecialCharactor();
+                var number = checkNumber();
+                if (len <= 8 || pass == "" || !capital || !small || !specialCharactor || !number){
+                  document.getElementById('validityMessage').innerHTML="Invalid Password";
+                  document.getElementById('validityMessage').style.color="red";
+                  document.getElementById('validityMessage').style.width="150px";
+                }
+                else {
+                  document.getElementById('validityMessage').innerHTML="Valid Password";
+                  document.getElementById('validityMessage').style.color="green";
+                  document.getElementById('validityMessage').style.width="150px";
+                }
+              }
+              var check = function() {
+                if (document.getElementById('password').value ==
+                        document.getElementById('confirmPassword').value) {
+                  document.getElementById('message').style.color = "green";
+                  document.getElementById('message').innerHTML = "Password Confirmed.";
+                } else {
+                  document.getElementById('message').style.color = "red";
+                  document.getElementById('message').innerHTML = "Passwords doesn't match.";
+                }
+              }
+              var occupied_usernames_and_emails = JSON.parse('<%-occupied_usernames_and_emails_string%>')
+              //console.log(occupied_usernames_and_emails[0].username)
+              const check_username = function () {
+                //check for small usenames
+                if(document.querySelector('#username').value.length < 5) {
+                  document.querySelector('#valid_username').innerHTML = 'Username is too small'
+                  document.querySelector('#valid_username').style.color = "red"
+                  return
+                }
+                var found = occupied_usernames_and_emails.find( user => user.username==document.querySelector('#username').value)
+                if(found) {
+                  document.querySelector('#valid_username').innerHTML = 'Username is already taken!'
+                  document.querySelector('#valid_username').style.color = "red"
+                  return
+                }
+                else {
+                  document.querySelector('#valid_username').innerHTML = 'Username is Available!'
+                  document.querySelector('#valid_username').style.color = "green"
+                  return
+                }
+              }
+            </script>
+            <style>
+              
+            input[type= submit], select {
+                 width: 60%;
+                 padding: 20px;
+                 margin: 10px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 1em;
+                }
+                input[type= reset]{
+                 width: 60%;
+                 padding: 20px;
+                 margin: 10px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 1em;
+                }
+                input[type= text] {
+                 width: 60%;
+                 padding: 20px;
+                 margin: 10px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 1em;
+                }
+                input[type= password] {
+                 width: 60%;
+                 padding: 20px;
+                 margin: 10px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 1em;
+                }
+                input[type= tel] {
+                 width: 60%;
+                 padding: 20px;
+                 margin: 10px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 1em;
+                }
+                input[type= email] {
+                 width: 60%;
+                 padding: 20px;
+                 margin: 10px;
+                 display: inline-block;
+                 border: 1px solid #ccc;
+                 border-radius: 40px;
+                 box-sizing: border-box;
+                 font-size: 1em;
+                }
+                
+                body {
+                    background-color:#2ecc72;
+
+                }
+                </style>
+    </head>
+    <body>
+            <center>
+                    <h1> OpenPool </h1>
+                  <br />
+                <div id="main" align=center>
+                    <form method="post" name="sign_up_form" action="/create/create_user">
+                        <table>
+                            <tr>
+                                <td>
+                                    <input placeholder="Enter your First Name" name="first_name" type="text" required />
+                                    <br />
+                
+                                    <input placeholder="Enter your Last Name" name="last_name" type="text" required />
+                                    <br />
+                
+                                    <input id="username" placeholder="Choose Your username" name="username" type="text" required onkeyup="check_username();"/>
+                                    <br />
+                                    <span id = valid_username ></span>
+                                    <br />
+                
+                                    <select name="extension" required  style="width: 28%;">
+                                    <option value="+91">India(+91)</option>
+                                    <option value="+92">Pakistan(+92)</option>
+                                    </select>
+                                    <input type="tel" name="contact_number" placeholder="Enter your phone number" required  style="width: 62%;" >
+                                    <br/>
+                
+                                    <select name="sex" required>
+                                    <option value="M">Male</option>
+                                    <option value="F">Female</option>
+                                    <option value="O">Prefer Not to Specify</option>
+                                    </select>
+                                    <br />
+                
+                                    <input type="email" name="email" placeholder="Enter Email" required/>
+                                    <br />
+                
+                                    <input type="password" name="password" id="password"placeholder="Enter New Password"  onkeyup="securePassword();" title="A Valid Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters, and one or more special charactors (#,$,%,&,@)."required/>
+                                    <br />
+                
+                                    <span id="validityMessage"></span>
+                                    <br />
+                
+                                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Your Password" onkeyup="check();" required/>
+                                    <br />
+                
+                                    <span id="message"></span>
+                                    <br />
+                
+                                    <input  type="submit"  value="Create New One" />
+                                    <br />
+                                    <input type="reset" value="Reset"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </center>
+    </body>
+</html>
